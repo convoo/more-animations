@@ -19,6 +19,8 @@ More animations to use with <a target="_blank" href="https://github.com/PolymerE
 ```
 <custom-element-demo>
   <template is="dom-bind">
+    <link rel="import" href="../paper-button/paper-button.html">
+    <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
     <link rel="import" href="../paper-item/paper-item.html">
     <link rel="import" href="../paper-listbox/paper-listbox.html">
     <link rel="import" href="../paper-slider/paper-slider.html">
