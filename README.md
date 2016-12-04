@@ -9,7 +9,7 @@ More animations to use with <a target="_blank" href="https://github.com/PolymerE
 </p>
 
 <p align="center">
-  <a href="https://beta.webcomponents.org/element/convoo/presence-fire"><img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg"></a>
+  <a href="https://beta.webcomponents.org/element/convoo/more-animations"><img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg"></a>
   <a href="https://gitter.im/convoo/general"><img src="https://img.shields.io/badge/gitter-join%20chat-brightgreen.svg"></a>
 </p>
 
