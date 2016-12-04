@@ -1,0 +1,53 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../neon-animation/neon-animation-behavior.html">
+<link rel="import" href="../../neon-animation/web-animations.html">
+
+<!--
+`<tadaa-animation>` animates the scale transform of an element from 1 to 0. By default it
+scales in both the x and y axes.
+
+Configuration:
+```
+{
+name: 'tadaa-animation',
+node: <node>,
+axis: 'x' | 'y' | '',
+transformOrigin: <transform-origin>,
+timing: <animation-timing>
+}
+```
+-->
+
+<script>
+
+Polymer({
+
+    is: 'tadaa-animation',
+
+    behaviors: [
+    Polymer.NeonAnimationBehavior
+    ],
+
+    configure: function(config) {
+    var node = config.node;
+
+    this._effect = new KeyframeEffect(node, [
+        {transform: 'scale3d(1, 1, 1)', offset: 0}, 
+        {transform: 'scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)', offset: 0.1}, 
+        {transform: 'scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)', offset: 0.2}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)', offset: 0.3}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)', offset: 0.4}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)', offset: 0.5}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)', offset: 0.6}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)', offset: 0.7}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)', offset: 0.8}, 
+        {transform: 'scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)', offset: 0.9}, 
+        {transform: 'scale3d(1, 1, 1)', offset: 1}
+    ], this.timingFromConfig(config));
+
+    return this._effect;
+    }
+
+});
+
+</script>

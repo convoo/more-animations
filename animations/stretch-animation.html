@@ -1,0 +1,51 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../neon-animation/neon-animation-behavior.html">
+<link rel="import" href="../../neon-animation/web-animations.html">
+
+<!--
+`<stretch-animation>` animates the scale transform of an element from 1 to 0. By default it
+scales in both the x and y axes.
+
+Configuration:
+```
+{
+name: 'stretch-animation',
+node: <node>,
+axis: 'x' | 'y' | '',
+transformOrigin: <transform-origin>,
+timing: <animation-timing>
+}
+```
+-->
+
+<script>
+
+Polymer({
+
+    is: 'stretch-animation',
+
+    behaviors: [
+    Polymer.NeonAnimationBehavior
+    ],
+
+    configure: function(config) {
+    var node = config.node;
+    if(!config.timing.easing){
+        config.timing.easing = 'ease-in';
+    }
+    this._effect = new KeyframeEffect(node, [
+        {transform: 'scale3d(1, 1, 1)', offset: 0}, 
+        {transform: 'scale3d(1.25, 0.75, 1)', offset: 0.3}, 
+        {transform: 'scale3d(0.75, 1.25, 1)', offset: 0.4}, 
+        {transform: 'scale3d(1.15, 0.85, 1)', offset: 0.5}, 
+        {transform: 'scale3d(.95, 1.05, 1)', offset: 0.65}, 
+        {transform: 'scale3d(1.05, .95, 1)', offset: 0.75}, 
+        {transform: 'scale3d(1, 1, 1)', offset: 1}
+    ], this.timingFromConfig(config));
+
+    return this._effect;
+    }
+
+});
+
+</script>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>more-animations demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../paper-button/paper-button.html">
+    <link rel="import" href="../../paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="../../paper-item/paper-item.html">
+    <link rel="import" href="../../paper-listbox/paper-listbox.html">
+
+    
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../more-animations.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+</head>
+<body>
+    <div class="vertical-section-container centered">
+    <h3>more-animations demo</h3>
+    <demo-snippet>
+         <template is="dom-bind">
+  
+
+<more-animations play=[[selected]]>
+</more-animations>
+
+
+<hr/>
+<paper-dropdown-menu label="Show me...">
+    <paper-listbox class="dropdown-content" selected="{{selected}}" attr-for-selected="value">
+        <paper-item value="bounce-animation">Bounce</paper-item>
+        <paper-item value="blink-animation">Blink</paper-item>
+        <paper-item value="bulge-animation">Bulge</paper-item>
+        <paper-item value="stretch-animation">Stretch</paper-item>
+        <paper-item value="shake-animation">Shake</paper-item>
+        <paper-item value="swing-animation">Swing</paper-item>
+        <paper-item value="tadaa-animation">Tadaa</paper-item>
+        <paper-item value="flip-in-side-animation">Flip In Side</paper-item>
+        <paper-item value="flip-in-top-animation">Flip In Top</paper-item>
+    </paper-listbox>
+</paper-dropdown-menu>
+
+
+        </template>
+    </demo-snippet>
+    </div>
+</body>
+</html>
