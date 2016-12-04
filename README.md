@@ -1,7 +1,7 @@
 # <more-animations>
 
 <p align="center">
-  <img alt="presence-fire" src="MoreAnimations400.png" width="300">
+  <img alt="more-animations" src="MoreAnimations400.png" width="300">
 </p>
 
 <p align="center">
