@@ -1,0 +1,109 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="more-animations.html">
+
+<link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
+
+
+<!--
+`animation-demo`
+@demo demo/index.html 
+-->
+
+<dom-module id="animation-demo">
+<template>
+    <style>
+    #test{
+        width: 200px;
+        height: 200px;
+        padding: 16px;
+        margin: 16px;
+        background: #e5435a;
+    }
+    </style>
+    <div id="test"></div>
+</template>
+
+<script>
+    Polymer({
+    is: 'animation-demo',
+/** @polymerBehavior Polymer.NeonAnimationRunnerBehavior */
+    behaviors: [Polymer.NeonAnimationRunnerBehavior],
+
+    properties: {
+            play:{
+                type: String,
+                observer: 'show'
+            },
+            duration: {
+                type: Number,
+                value: 1100,
+                notify: true,
+                reflectToAttribute: true
+            },
+            delay: {
+                type: Number,
+                value: 0,
+                notify: true,
+                reflectToAttribute: true
+            },
+        animationConfig: {
+            type: Object,
+            value: function() {
+            return {
+                'entry': [{
+                name: 'bounce-animation',
+                node: this.$.test,
+                timing: {
+                    delay:0, 
+                    duration: 1100
+                    }
+                }],
+                'exit': [{
+                name: 'fade-out-animation',
+                node: this.$.test,
+                timing: {
+                    delay:100, 
+                    duration: 5000
+                    }
+                }]
+            }
+            }
+        },
+    
+        _showing: {
+            type: Boolean,
+            value: false
+        }
+    },
+
+listeners: {
+    'neon-animation-finish': '_onAnimationFinish'
+    },
+
+    _onAnimationFinish: function(e) {
+        if (this._showing) {
+        } else {
+            this.style.display = '';
+        }
+    },
+
+    show: function() {
+        this.animationConfig.entry[0].name = this.play;
+        this.animationConfig.entry[0].timing = {
+            duration: this.duration,
+            delay: this.delay
+        };
+        this.$.test.style.display = 'inline-block';
+        this._showing = true;
+        this.playAnimation('entry');
+    },
+
+    hide: function() {
+        this._showing = false;
+        this.playAnimation('exit');
+    }
+
+
+    });
+</script>
+</dom-module>

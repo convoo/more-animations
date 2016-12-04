@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>more-animations demo</title>
+    <title>animation-demo demo</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
@@ -16,23 +16,35 @@
     
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../more-animations.html">
+    <link rel="import" href="../../paper-slider/paper-slider.html">
+    <link rel="import" href="../animation-demo.html">
+    
 
     <style is="custom-style" include="demo-pages-shared-styles">
+    paper-slider {
+        --paper-slider-knob-color: #ca3b50;
+        --paper-slider-active-color: #e5435a;å
+    }
     </style>
 </head>
 <body>
     <div class="vertical-section-container centered">
-    <h3>more-animations demo</h3>
+    <h3>animation-demo demo</h3>
     <demo-snippet>
          <template is="dom-bind">
   
 
-<more-animations play=[[selected]]>
-</more-animations>
+<animation-demo play="[[selected]]" duration="{{duration}}" delay="{{delay}}">
+</animation-demo>
+<div>
+    Duration: [[duration]]
+</div>
+<paper-slider min="100" max="1000" immediate-value="{{duration}}" value="500" snaps step="50"></paper-slider>
+<div>
+    Delay: [[delay]]
+</div>
+<paper-slider min="0" max="500" immediate-value="{{delay}}" value="0" snaps step="50"></paper-slider>
 
-
-<hr/>
 <paper-dropdown-menu label="Show me...">
     <paper-listbox class="dropdown-content" selected="{{selected}}" attr-for-selected="value">
         <paper-item value="bounce-animation">Bounce</paper-item>
