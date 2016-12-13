@@ -30,6 +30,9 @@ More animations to use with <a target="_blank" href="https://github.com/PolymerE
             --paper-slider-knob-color: #ca3b50;
             --paper-slider-active-color: #e5435a;å
         }
+        .demo {
+            min-height: 500px;
+        }
     </style>
     <div>
         <template is="dom-bind">
@@ -41,31 +44,32 @@ More animations to use with <a target="_blank" href="https://github.com/PolymerE
 ```
 -->
 ```html
+<div class="demo">
+    <animation-demo play="[[selected]]" duration="{{duration}}" delay="{{delay}}">
+    </animation-demo>
+    <div>
+        Duration: [[duration]]
+    </div>
+    <paper-slider min="100" max="1000" immediate-value="{{duration}}" value="500" snaps step="50"></paper-slider>
+    <div>
+        Delay: [[delay]]
+    </div>
+    <paper-slider min="0" max="500" immediate-value="{{delay}}" value="0" snaps step="50"></paper-slider>
 
-<animation-demo play="[[selected]]" duration="{{duration}}" delay="{{delay}}">
-</animation-demo>
-<div>
-    Duration: [[duration]]
+    <paper-dropdown-menu label="Show me...">
+        <paper-listbox class="dropdown-content" selected="{{selected}}" attr-for-selected="value">
+            <paper-item value="bounce-animation">Bounce</paper-item>
+            <paper-item value="blink-animation">Blink</paper-item>
+            <paper-item value="bulge-animation">Bulge</paper-item>
+            <paper-item value="stretch-animation">Stretch</paper-item>
+            <paper-item value="shake-animation">Shake</paper-item>
+            <paper-item value="swing-animation">Swing</paper-item>
+            <paper-item value="tadaa-animation">Tadaa</paper-item>
+            <paper-item value="flip-in-side-animation">Flip In Side</paper-item>
+            <paper-item value="flip-in-top-animation">Flip In Top</paper-item>
+        </paper-listbox>
+    </paper-dropdown-menu>
 </div>
-<paper-slider min="100" max="1000" immediate-value="{{duration}}" value="500" snaps step="50"></paper-slider>
-<div>
-    Delay: [[delay]]
-</div>
-<paper-slider min="0" max="500" immediate-value="{{delay}}" value="0" snaps step="50"></paper-slider>
-
-<paper-dropdown-menu label="Show me...">
-    <paper-listbox class="dropdown-content" selected="{{selected}}" attr-for-selected="value">
-        <paper-item value="bounce-animation">Bounce</paper-item>
-        <paper-item value="blink-animation">Blink</paper-item>
-        <paper-item value="bulge-animation">Bulge</paper-item>
-        <paper-item value="stretch-animation">Stretch</paper-item>
-        <paper-item value="shake-animation">Shake</paper-item>
-        <paper-item value="swing-animation">Swing</paper-item>
-        <paper-item value="tadaa-animation">Tadaa</paper-item>
-        <paper-item value="flip-in-side-animation">Flip In Side</paper-item>
-        <paper-item value="flip-in-top-animation">Flip In Top</paper-item>
-    </paper-listbox>
-</paper-dropdown-menu>
 ```
 
 
