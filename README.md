@@ -31,7 +31,11 @@ More animations to use with <a target="_blank" href="https://github.com/PolymerE
             --paper-slider-active-color: #e5435a;å
         }
     </style>
-    <next-code-block></next-code-block>
+    <div>
+        <template is="dom-bind">
+            <next-code-block></next-code-block>
+        </template>
+    </div>
   </template>
 </custom-element-demo>
 ```
